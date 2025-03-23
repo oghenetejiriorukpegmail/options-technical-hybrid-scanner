@@ -1,0 +1,50 @@
+[
+  {
+    "symbol": "AAPL",
+    "timestamp": "2025-03-23T16:37:48.730995",
+    "setup": "neutral",
+    "confidence": 68.75,
+    "reasons": [
+      "Neutral sentiment (PCR: 0.86)",
+      "Low implied volatility (0.31)",
+      "Neutral Stochastic RSI: 56.74",
+      "Price near Max Pain (217.50)",
+      "GEX near zero indicating potential breakout"
+    ],
+    "entry_signal": false,
+    "entry_strength": 0,
+    "entry_reasons": [],
+    "exit_signal": false,
+    "exit_strength": 0,
+    "exit_reasons": [],
+    "position_size": 0.010312499999999999,
+    "stop_loss": 0,
+    "risk_reward": 0,
+    "target_price": 0,
+    "current_price": 218.27000427246094,
+    "market_context": {
+      "trend": "bearish",
+      "sentiment": "neutral",
+      "momentum": "neutral",
+      "pcr": 0.8595037929788841,
+      "rsi": 40.0007328258352,
+      "stoch_rsi": 56.743179191596475
+    },
+    "key_levels": {
+      "support": [
+        212.5,
+        210.0,
+        207.5,
+        200.0,
+        150.0
+      ],
+      "resistance": [
+        220.0,
+        222.5,
+        225.0,
+        260.0
+      ],
+      "max_pain": 217.5
+    }
+  }
+]
