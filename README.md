@@ -21,6 +21,8 @@ The Options-Technical Hybrid Scanner is a trading tool designed to empower retai
 # Clone the repository
 git clone https://github.com/yourusername/options-technical-hybrid-scanner.git
 cd options-technical-hybrid-scanner
+python -m venv .venv
+.venv\Scripts\activate.ps1
 
 # Install dependencies
 pip install -r requirements.txt
