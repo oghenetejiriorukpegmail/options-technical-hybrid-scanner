@@ -11,6 +11,7 @@ import pandas as pd
 import yfinance as yf
 import concurrent.futures
 from datetime import datetime
+from tqdm import tqdm
 
 from src.modules.market_context import MarketContextAnalyzer
 from src.modules.key_levels import KeyLevelsMapper
@@ -250,17 +251,17 @@ class StockScanner:
             list: Scan results
         """
         logger.info(f"Starting scan for {len(self.symbols)} symbols")
-        
+
         self.results = []
         max_workers = self.config['max_workers']
-        
+
         # Use ThreadPoolExecutor for parallel processing
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Submit tasks
             future_to_symbol = {executor.submit(self._analyze_symbol, symbol): symbol for symbol in self.symbols}
-            
+
             # Process results as they complete
-            for future in concurrent.futures.as_completed(future_to_symbol):
+            for future in tqdm(concurrent.futures.as_completed(future_to_symbol), total=len(self.symbols), desc="Scanning"):
                 symbol = future_to_symbol[future]
                 try:
                     result = future.result()
@@ -269,15 +270,15 @@ class StockScanner:
                         logger.info(f"Found setup for {symbol}: {result['setup']} (Confidence: {result['confidence']}%)")
                 except Exception as e:
                     logger.error(f"Error processing {symbol}: {e}")
-        
+
         # Sort results by confidence
         self.results.sort(key=lambda x: x['confidence'], reverse=True)
-        
+
         # Save results
         self._save_results()
-        
+
         logger.info(f"Scan complete. Found {len(self.results)} setups.")
-        
+
         return self.results
     
     def get_bullish_setups(self):
