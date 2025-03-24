@@ -27,6 +27,7 @@
     "APP",
     "ARM",
     "ASML",
+    "ATVI",
     "AVGO",
     "AXON",
     "AZN",
@@ -65,6 +66,7 @@
     "INTC",
     "INTU",
     "ISRG",
+    "JD",
     "KDP",
     "KHC",
     "KLAC",
@@ -78,6 +80,7 @@
     "MELI",
     "META",
     "MNST",
+    "MRNA",
     "MRVL",
     "MSFT",
     "MSTR",
@@ -100,6 +103,7 @@
     "ROP",
     "ROST",
     "SBUX",
+    "SIRI",
     "SNPS",
     "TEAM",
     "TMUS",
@@ -112,6 +116,7 @@
     "WBD",
     "WDAY",
     "XEL",
+    "ZM",
     "ZS"
   ]
 }

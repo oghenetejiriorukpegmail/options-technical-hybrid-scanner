@@ -37,6 +37,9 @@ class StockScanner:
         Args:
             config_file (str, optional): Path to configuration file
         """
+        if config_file is None:
+            config_file = 'config.json'  # Default to config.json in the root directory
+        
         self.config = self._load_config(config_file)
         self.symbols = self._load_symbols()
         self.results = []
@@ -58,8 +61,9 @@ class StockScanner:
             'output_dir': 'scanner_results'
         }
         
-        if config_file and os.path.exists(config_file):
-            try:
+        try:
+            if os.path.exists(config_file):
+                logger.info(f"Loading configuration from {config_file}")
                 with open(config_file, 'r') as f:
                     user_config = json.load(f)
                     # Merge user config with default config
@@ -68,8 +72,10 @@ class StockScanner:
                             default_config[key].update(value)
                         else:
                             default_config[key] = value
-            except Exception as e:
-                logger.error(f"Error loading config file: {e}")
+            else:
+                logger.warning(f"Config file {config_file} not found, using default configuration")
+        except Exception as e:
+            logger.error(f"Error loading config file: {e}")
         
         return default_config
     

@@ -57,7 +57,7 @@ def main():
         scanner = StockScanner()
         results = scanner.scan()
         for result in results:
-            print(f"Symbol: {result['symbol']}, Setup: {result['setup']}, Score: {result['score']}")
+            print(f"Symbol: {result['symbol']}, Setup: {result['setup']}, Confidence: {result['confidence']}%")
     elif args.symbol:
         # Analyze a specific symbol
         symbol = args.symbol.upper()
