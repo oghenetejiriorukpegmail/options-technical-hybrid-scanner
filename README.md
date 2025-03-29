@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ```bash
 # Run the scanner
-python src/main.py
+python src/main.py --web
 ```
 
 ## Project Structure
